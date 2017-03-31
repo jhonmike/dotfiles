@@ -21,13 +21,12 @@ set hlsearch
 set backspace=indent,eol,start
 set autoindent
 set mouse=a
-set paste
-set go+=a
 set pastetoggle=<F11>
 set clipboard=unnamedplus
 set t_Co=256
 
-colorscheme monokai
+set background=dark
+colorscheme solarized
 
 let g:rehash256 = 1
 let g:airline_theme='dark'

@@ -1,0 +1,21 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Emmet",
+		"Git",
+		"GitGutter",
+		"JSX",
+		"MarkdownHighlighting",
+		"Package Control",
+		"PHP-Twig",
+		"ReactJS",
+		"SideBarEnhancements",
+		"Theme - Soda",
+		"Theme - Soda SolarizedDark",
+		"TypeScript"
+	]
+}
