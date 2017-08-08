@@ -5,7 +5,9 @@
 	"font_size": 9,
 	"ignored_packages":
 	[
+		"vintage"
 	],
+	"index_files": false,
 	"rulers":
 	[
 		100,
@@ -13,6 +15,6 @@
 	],
 	"theme": "Soda Dark 3.sublime-theme",
 	"translate_tabs_to_spaces": true,
-	"vintage_ctrl_keys": true,
-	"vintage_start_in_command_mode": true
+	"vintage_ctrl_keys": false,
+	"vintage_start_in_command_mode": false
 }

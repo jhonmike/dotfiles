@@ -5,8 +5,13 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-commentary'
+Plug 'rust-lang/rust.vim'
+Plug 'peterhoeg/vim-qml'
 
 call plug#end()
+
+let mapleader = "\<space>"
 
 syntax on
 set guifont=DejaVu\ Sans\ Mono:h9
@@ -24,6 +29,7 @@ set mouse=a
 set pastetoggle=<F11>
 set clipboard=unnamedplus
 set t_Co=256
+set noswapfile
 
 set background=dark
 colorscheme solarized
@@ -34,4 +40,8 @@ let g:airline_powerline_fonts = 1
 
 map <C-k> :NERDTreeToggle<CR>
 map <C-p> :FZF<CR>
-
+nmap +  ddp
+nmap _  ddkkp
+map <C-l> :vsplit<CR>
+nnoremap <leader><space> :w<CR>
+nnoremap <C-c> :q!<CR>
