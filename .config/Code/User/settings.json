@@ -1,5 +1,7 @@
 {
+    "files.insertFinalNewline": true,
     "editor.fontSize": 12,
+    "editor.renderIndentGuides": true,
     "editor.renderWhitespace": "all",
     "workbench.colorTheme": "Solarized Dark"
 }
