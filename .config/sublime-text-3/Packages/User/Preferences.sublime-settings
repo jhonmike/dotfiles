@@ -1,20 +1,21 @@
 {
-	"color_scheme": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme",
+	"theme": "Soda Dark 3.sublime-theme",
+	"soda_folder_icons": true,
+	"color_scheme": "Packages/Dracula Color Scheme/Dracula.tmTheme",
 	"draw_white_space": "all",
 	"ensure_newline_at_eof_on_save": true,
-	"font_size": 9,
+	"translate_tabs_to_spaces": true,
+	"index_files": false,
 	"ignored_packages":
 	[
-		"vintage"
+		"Vintage"
 	],
-	"index_files": false,
+	"vintage_ctrl_keys": false,
+	"vintage_start_in_command_mode": false,
 	"rulers":
 	[
 		100,
 		120
-	],
-	"theme": "Soda Dark 3.sublime-theme",
-	"translate_tabs_to_spaces": true,
-	"vintage_ctrl_keys": false,
-	"vintage_start_in_command_mode": false
+	]
 }
+

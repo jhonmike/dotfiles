@@ -21,10 +21,6 @@ antigen apply
 
 # User configuration
 
-# You may need to manually set your language environment
-# export LANG=pt_BR.UTF-8
-# setxkbmap -model abnt2 -layout br -variant abnt2
-
 export VISUAL="vim"
 [[ "$TERM" == "xterm" ]] && export TERM=xterm-256color
 

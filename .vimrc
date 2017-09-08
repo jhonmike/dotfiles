@@ -20,7 +20,7 @@ set laststatus=2
 set shiftwidth=4
 set softtabstop=4
 set expandtab
-set listchars=eol:¬,tab:>·,trail:·,extends:>,precedes:<,space:·
+set listchars=trail:·
 set list
 set hlsearch
 set backspace=indent,eol,start
@@ -31,8 +31,9 @@ set clipboard=unnamedplus
 set t_Co=256
 set noswapfile
 
-set background=dark
-colorscheme solarized
+"set background=dark
+color dracula
+"colorscheme solarized
 
 let g:rehash256 = 1
 let g:airline_theme='dark'

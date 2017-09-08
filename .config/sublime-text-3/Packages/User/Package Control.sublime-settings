@@ -5,21 +5,11 @@
 	],
 	"installed_packages":
 	[
-		"A File Icon",
+		"Dracula Color Scheme",
 		"Emmet",
-		"Git",
 		"GitGutter",
 		"MarkdownHighlighting",
-		"One Dark Color Scheme",
-		"Package Control",
-		"Pretty JSON",
-		"QML",
-		"Rust Enhanced",
-		"Sass",
 		"SideBarEnhancements",
-		"Theme - Soda",
-		"Theme - Soda SolarizedDark",
-		"TOML",
-		"TypeScript"
+		"Theme - Soda"
 	]
 }
