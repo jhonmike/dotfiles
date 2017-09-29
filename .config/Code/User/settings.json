@@ -3,5 +3,8 @@
     "editor.fontSize": 12,
     "editor.renderIndentGuides": true,
     "editor.renderWhitespace": "all",
-    "workbench.colorTheme": "Solarized Dark"
+    "editor.rulers": [100,120],
+    "window.menuBarVisibility": "toggle",
+    "workbench.colorTheme": "Solarized Dark",
+    "window.zoomLevel": 0
 }
