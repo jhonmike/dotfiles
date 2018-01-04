@@ -1,10 +1,17 @@
 {
     "files.insertFinalNewline": true,
-    "editor.fontSize": 12,
+    "editor.fontSize": 11,
     "editor.renderIndentGuides": true,
     "editor.renderWhitespace": "all",
     "editor.rulers": [100,120],
     "window.menuBarVisibility": "toggle",
     "workbench.colorTheme": "Solarized Dark",
-    "window.zoomLevel": 0
+    "window.zoomLevel": 1,
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/dist": true
+    },
+    "extensions.ignoreRecommendations": false,
+    "go.gopath": "/home/jhon/Projects/go"
 }

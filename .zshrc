@@ -13,8 +13,8 @@ antigen bundle command-not-found
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 
-# Load the theme.
-antigen theme robbyrussell
+# Translate plug.
+antigen bundle soimort/translate-shell
 
 # Tell antigen that you're done.
 antigen apply
@@ -25,3 +25,13 @@ export VISUAL="vim"
 [[ "$TERM" == "xterm" ]] && export TERM=xterm-256color
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export GOPATH="$HOME/Projects/go"
+export PATH="$PATH:$GOPATH/bin"
+
+source $HOME/.cargo/env
+export PATH="$PATH:$HOME/emsdk-portable"
+export PATH="$PATH:$HOME/emsdk-portable/clang/fastcomp/build_incoming_64/bin"
+export PATH="$PATH:$HOME/emsdk-portable/emscripten/incoming"
+
+export CHROME_BIN=google-chrome-unstable

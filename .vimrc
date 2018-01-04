@@ -8,6 +8,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-commentary'
 Plug 'rust-lang/rust.vim'
 Plug 'peterhoeg/vim-qml'
+Plug 'fatih/vim-go'
+Plug 'scrooloose/syntastic'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
@@ -18,9 +22,10 @@ set guifont=DejaVu\ Sans\ Mono:h9
 set number
 set laststatus=2
 set shiftwidth=4
+set tabstop=4
 set softtabstop=4
 set expandtab
-set listchars=trail:·
+set listchars=tab:▸\·,trail:·
 set list
 set hlsearch
 set backspace=indent,eol,start
@@ -32,8 +37,9 @@ set t_Co=256
 set noswapfile
 
 "set background=dark
-color dracula
-"colorscheme solarized
+"color dracula
+color solarized
+colorscheme solarized
 
 let g:rehash256 = 1
 let g:airline_theme='dark'
