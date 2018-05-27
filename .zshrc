@@ -26,6 +26,9 @@ export VISUAL="vim"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+source ~/Projects/contaazul/contaazul-cli/index.sh
+alias chrome=google-chrome-unstable
+
 export GOPATH="$HOME/Projects/go"
 export PATH="$PATH:$GOPATH/bin"
 
@@ -35,3 +38,6 @@ export PATH="$PATH:$HOME/emsdk-portable/clang/fastcomp/build_incoming_64/bin"
 export PATH="$PATH:$HOME/emsdk-portable/emscripten/incoming"
 
 export CHROME_BIN=google-chrome-unstable
+
+export PATH=$PATH:~/.local/bin
+
