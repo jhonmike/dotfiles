@@ -16,6 +16,9 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 # Translate plug.
 antigen bundle soimort/translate-shell
 
+# Load the theme.
+antigen theme robbyrussell
+
 # Tell antigen that you're done.
 antigen apply
 
@@ -26,13 +29,11 @@ export VISUAL="vim"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source ~/Projects/contaazul/contaazul-cli/index.sh
-alias chrome=google-chrome-unstable
-
+source $HOME/.cargo/env
+export PATH=$PATH:~/.cabal/bin
 export GOPATH="$HOME/Projects/go"
 export PATH="$PATH:$GOPATH/bin"
 
-source $HOME/.cargo/env
 export PATH="$PATH:$HOME/emsdk-portable"
 export PATH="$PATH:$HOME/emsdk-portable/clang/fastcomp/build_incoming_64/bin"
 export PATH="$PATH:$HOME/emsdk-portable/emscripten/incoming"
