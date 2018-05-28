@@ -29,16 +29,16 @@ export VISUAL="vim"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source $HOME/.cargo/env
-export PATH=$PATH:~/.cabal/bin
-export GOPATH="$HOME/Projects/go"
-export PATH="$PATH:$GOPATH/bin"
+export PATH=$PATH:$HOME/.cabal/bin
+export PATH=$PATH:$HOME/.cargo/bin
+export GOPATH=$HOME/Projects/go
+export PATH=$PATH:$GOPATH/bin
 
 export PATH="$PATH:$HOME/emsdk-portable"
 export PATH="$PATH:$HOME/emsdk-portable/clang/fastcomp/build_incoming_64/bin"
 export PATH="$PATH:$HOME/emsdk-portable/emscripten/incoming"
 
-export CHROME_BIN=google-chrome-unstable
+export PATH=$PATH:$HOME/.local/bin
 
-export PATH=$PATH:~/.local/bin
+export CHROME_BIN=google-chrome-unstable
 
