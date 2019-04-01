@@ -1,34 +1,133 @@
 {
-    "files.insertFinalNewline": true,
-    "editor.fontSize": 11,
-    "editor.fontFamily": "Hasklig, Fira Code",
-    "editor.fontLigatures": true,
-    "editor.renderIndentGuides": true,
-    "editor.renderWhitespace": "all",
-    "editor.rulers": [
-        100,
-        120
-    ],
-    "editor.tabSize": 2,
-    "editor.insertSpaces": true,
-    "window.menuBarVisibility": "toggle",
-    "workbench.colorTheme": "Solarized Dark",
-    "window.zoomLevel": 0,
-    "search.exclude": {
-        "**/node_modules": true,
-        "**/bower_components": true,
-        "**/dist": true
-    },
-    "extensions.ignoreRecommendations": false,
-    "go.gopath": "/home/jhon/Projects/go",
-    "eslint.autoFixOnSave": true,
-    "eslint.validate": [
-        "javascript", {
-            "language": "vue",
-            "autoFix": true
-        }
-    ],
-    "eslint.options": {
-        "extensions": [".js", ".jsx", ".vue"]
+  "files.insertFinalNewline": true,
+  "files.autoSave": "off",
+  "editor.fontSize": 12,
+  "editor.fontFamily": "'Operator Mono Medium', 'Fira Code', Hasklig",
+  "editor.fontLigatures": true,
+  "editor.renderIndentGuides": true,
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [100, 120],
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.formatOnSave": true,
+  "breadcrumbs.enabled": true,
+  "terminal.integrated.fontFamily": "'DejaVu Sans Mono'",
+  "terminal.integrated.fontSize": 11,
+  "terminal.integrated.rendererType": "dom",
+  "workbench.colorTheme": "Solarized Dark",
+  "window.menuBarVisibility": "default",
+  "window.zoomLevel": 0,
+  "window.titleBarStyle": "custom",
+  "extensions.ignoreRecommendations": false,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  // GoLang
+  "go.gopath": "/home/jhon/Projects/go",
+  "go.autocompleteUnimportedPackages": true,
+  "go.formatTool": "goimports",
+  // Javascript
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": false
+  },
+  "[vue]": {
+    "editor.formatOnSave": false
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/dist": true
+  },
+  "eslint.enable": true,
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [
+    "javascript",
+    {
+      "language": "vue",
+      "autoFix": true
     }
+  ],
+  "eslint.options": {
+    "extensions": [".js", ".jsx", ".ts", ".tsx", ".vue"]
+  },
+  "tslint.enable": true,
+  "tslint.autoFixOnSave": true,
+  "prettier.singleQuote": true,
+  "prettier.eslintIntegration": true,
+  "prettier.tabWidth": 2,
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  // Thema
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": "variable.language",
+        "settings": {
+          "fontStyle": "italic"
+        }
+      },
+      // {
+      //   "scope": "variable.other.object.property",
+      //   "settings": {
+      //     "foreground": "#7db0fc"
+      //   }
+      // },
+      {
+        "scope": "strong",
+        "settings": {
+          "fontStyle": "bold"
+        }
+      },
+      {
+        "scope": "keyword.control",
+        "settings": {
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": "keyword.operator.expression.delete",
+        "settings": {
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": "storage",
+        "settings": {
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": "entity.other.attribute-name",
+        "settings": {
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": [
+          "entity.other.attribute-name.html",
+          "entity.other.attribute-name.tag.jade",
+          "entity.other.attribute-name.tag.pug"
+        ],
+        "settings": {
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": "markup.bold",
+        "settings": {
+          "fontStyle": "bold"
+        }
+      },
+      {
+        "scope": "markup.italic",
+        "settings": {
+          "fontStyle": "italic"
+        }
+      }
+    ]
+  },
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
 }

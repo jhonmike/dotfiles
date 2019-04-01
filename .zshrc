@@ -42,3 +42,10 @@ export PATH=$PATH:$HOME/.local/bin
 
 export CHROME_BIN=google-chrome-unstable
 
+alias preview="fzf --preview 'bat --color \"always\" {}'"
+export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
+
+#alias cat='bat'
+#alias ping='prettyping --nolegend'
+#alias top="htop"
+

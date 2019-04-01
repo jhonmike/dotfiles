@@ -14,6 +14,12 @@ Plug 'w0rp/ale'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'editorconfig/editorconfig-vim'
 
+"Javascript
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'mattn/emmet-vim'
+Plug 'posva/vim-vue'
+
 call plug#end()
 
 let mapleader = "\<space>"
@@ -22,11 +28,13 @@ syntax on
 set guifont=DejaVu\ Sans\ Mono:h9
 set number
 set laststatus=2
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
+set shiftwidth=2
+set tabstop=2
+"set softtabstop=2
 set expandtab
-set listchars=tab:▸\·,trail:·
+"set listchars=tab:▸\·,trail:·
+"set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
+set listchars=tab:→\ ,
 set list
 set hlsearch
 set backspace=indent,eol,start
@@ -37,6 +45,9 @@ set clipboard=unnamedplus
 set t_Co=256
 set noswapfile
 set nowrap
+set shell=zsh
+autocmd FileType html,css,javascript,javascript.jsx setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType go setlocal tabstop=2 noexpandtab
 
 " config ale plugin -- linters
 let g:ale_enabled = 0
@@ -44,6 +55,9 @@ let g:ale_fix_on_save = 1
 "let g:ale_fixers = { 'javascript': [ 'prettier' ] }
 let g:ale_fixers = {'javascript': ['eslint']}
 let g:airline#extensions#ale#enabled = 1
+let g:ale_sign_error = '●' " Less aggressive than the default '>>'
+let g:ale_sign_warning = '.'
+let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 
 "set background=dark
 "color dracula
@@ -52,7 +66,7 @@ colorscheme solarized
 
 " config airline
 let g:rehash256 = 1
-let g:airline_theme='dark'
+let g:airline_theme='solarized'
 let g:airline_powerline_fonts = 1
 
 " config netrw
@@ -62,15 +76,30 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 
+" config emmet
+let g:user_emmet_leader_key='<Tab>'
+let g:user_emmet_settings = {
+ \  'javascript.jsx' : {
+ \      'extends' : 'jsx',
+ \  },
+ \}
+
 " atalhos
 map <C-\> :Explore<CR>
-" map <C-p> :ZFZ<CR>
+"map <C-p> :FZF<CR>
 map <C-p> :GFiles<CR>
-nmap +  ddp
-nmap _  ddkkp
 map <C-l> :vsplit<CR>
-nnoremap <leader><space> :w<CR>
-nnoremap <C-c> :q!<CR>
+map <C-j> :split<CR>
+nmap <C-Up>  ddkP
+nmap <C-Down> ddp
+nmap <M-Up> yyP
+nmap <M-Down>  yyp
+nmap <leader><space> :w<CR>
+nmap <C-c> :q!<CR>
+nmap <F5> :source ~/.vimrc<CR>
+nmap <F12> :silent update<Bar>silent !google-chrome-unstable %:p<CR> :source ~/.vimrc<CR>
+vmap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+
 
 " Adapted from unimpaired.vim by Tim Pope.
 function! s:DoAction(algorithm,type)
