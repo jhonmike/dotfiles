@@ -9,45 +9,39 @@
   "editor.rulers": [100, 120],
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
   "editor.formatOnSave": true,
   "breadcrumbs.enabled": true,
   "terminal.integrated.fontFamily": "'DejaVu Sans Mono'",
   "terminal.integrated.fontSize": 11,
   "terminal.integrated.rendererType": "dom",
-  "workbench.colorTheme": "Solarized Dark",
-  "window.menuBarVisibility": "default",
-  "window.zoomLevel": 0,
-  "window.titleBarStyle": "custom",
   "extensions.ignoreRecommendations": false,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
+  "workbench.colorTheme": "Dracula",
+  "workbench.editor.showTabs": true,
+  "window.zoomLevel": 0,
   // GoLang
-  "go.gopath": "/home/jhon/Projects/go",
+  "go.gopath": "/Users/jhon.mike/.go",
+  "go.useLanguageServer": true,
   "go.autocompleteUnimportedPackages": true,
   "go.formatTool": "goimports",
   // Javascript
-  "[javascript]": {
-    "editor.formatOnSave": false
-  },
-  "[javascriptreact]": {
-    "editor.formatOnSave": false
-  },
-  "[vue]": {
-    "editor.formatOnSave": false
-  },
   "search.exclude": {
     "**/node_modules": true,
     "**/bower_components": true,
     "**/dist": true
   },
   "eslint.enable": true,
-  "eslint.autoFixOnSave": true,
   "eslint.validate": [
+    "html",
     "javascript",
-    {
-      "language": "vue",
-      "autoFix": true
-    }
+    "typescript",
+    "javascriptreact",
+    "typescriptreact",
+    "vue"
   ],
   "eslint.options": {
     "extensions": [".js", ".jsx", ".ts", ".tsx", ".vue"]
@@ -59,6 +53,15 @@
   "prettier.tabWidth": 2,
   "javascript.updateImportsOnFileMove.enabled": "never",
   "typescript.updateImportsOnFileMove.enabled": "always",
+  // terraform 0.12
+  "terraform.path": "terraform12",
+  "terraform.indexing": {
+    "enabled": false
+  },
+  "terraform.languageServer": {
+    "external": true,
+    "args": ["serve"]
+  },
   // Thema
   "editor.tokenColorCustomizations": {
     "textMateRules": [
@@ -127,7 +130,5 @@
         }
       }
     ]
-  },
-  "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
+  }
 }
