@@ -88,8 +88,8 @@ let g:user_emmet_settings = {
 
 " atalhos
 map <C-\> :Explore<CR>
-"map <C-p> :FZF<CR>
-map <C-p> :GFiles<CR>
+map <C-p> :FZF<CR>
+"map <C-p> :GFiles<CR>
 map <C-l> :vsplit<CR>
 map <C-j> :split<CR>
 nmap <C-Up>  ddkP

@@ -2,39 +2,38 @@
   "files.insertFinalNewline": true,
   "files.autoSave": "off",
   "editor.fontSize": 12,
-  "editor.fontFamily": "'Operator Mono Medium', 'Fira Code', Hasklig",
+  "editor.fontFamily": "Operator Mono",
   "editor.fontLigatures": true,
   "editor.renderIndentGuides": true,
   "editor.renderWhitespace": "all",
   "editor.rulers": [100, 120],
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
   "editor.formatOnSave": true,
   "breadcrumbs.enabled": true,
-  "terminal.integrated.fontFamily": "'DejaVu Sans Mono'",
+  "terminal.integrated.fontFamily": "DejaVu Sans Mono for Powerline",
   "terminal.integrated.fontSize": 11,
   "terminal.integrated.rendererType": "dom",
   "extensions.ignoreRecommendations": false,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
-  "workbench.colorTheme": "Dracula",
   "workbench.editor.showTabs": true,
-  "window.zoomLevel": 0,
   // GoLang
   "go.gopath": "/Users/jhon.mike/.go",
   "go.useLanguageServer": true,
   "go.autocompleteUnimportedPackages": true,
   "go.formatTool": "goimports",
   // Javascript
+  // "[javascript]": {
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  // },
   "search.exclude": {
     "**/node_modules": true,
     "**/bower_components": true,
     "**/dist": true
   },
-  "eslint.enable": true,
   "eslint.validate": [
     "html",
     "javascript",
@@ -130,5 +129,28 @@
         }
       }
     ]
-  }
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [80],
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": false
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.colorTheme": "Dracula",
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "python.languageServer": "Pylance"
 }
