@@ -1,4 +1,8 @@
-source /usr/local/share/antigen/antigen.zsh
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then # Linux
+    source /usr/share/zsh/share/antigen.zsh
+elif [[ "$OSTYPE" == "darwin"* ]]; then # Mac OSX
+    source /usr/local/share/antigen/antigen.zsh
+fi
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -50,18 +54,17 @@ export VISUAL="vim"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH=$PATH:$HOME/.cabal/bin
-export PATH=$PATH:$HOME/.cargo/bin
-export GO111MODULE=on
+# export PATH=$PATH:$HOME/.cabal/bin
+# export PATH=$PATH:$HOME/.cargo/bin
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
-export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
+# export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 export PATH="$(yarn global bin):$PATH"
-export PATH="$PATH:/opt/flutter/bin"
+# export PATH="$PATH:/opt/flutter/bin"
 
-export PATH="$PATH:$HOME/emsdk-portable"
-export PATH="$PATH:$HOME/emsdk-portable/clang/fastcomp/build_incoming_64/bin"
-export PATH="$PATH:$HOME/emsdk-portable/emscripten/incoming"
+# export PATH="$PATH:$HOME/emsdk-portable"
+# export PATH="$PATH:$HOME/emsdk-portable/clang/fastcomp/build_incoming_64/bin"
+# export PATH="$PATH:$HOME/emsdk-portable/emscripten/incoming"
 
 export PATH=$PATH:$HOME/.local/bin
 
