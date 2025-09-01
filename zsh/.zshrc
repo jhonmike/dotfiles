@@ -29,12 +29,8 @@ antigen use oh-my-zsh
 
 # Oh-My-Zsh bundles
 antigen bundle git
-antigen bundle kube-ps1
 antigen bundle kubectl
-antigen bundle helm
-antigen bundle kops
 antigen bundle golang
-antigen bundle docker
 antigen bundle aws
 antigen bundle terraform
 antigen bundle pip
@@ -99,9 +95,24 @@ if command -v node >/dev/null && [[ -n "$HOMEBREW_PREFIX" ]]; then
   export NODE_PATH="${HOMEBREW_PREFIX}/lib/node_modules"
 fi
 
+# === COMPLETIONS ===
+# Setup completion directories
+mkdir -p "$HOME/.zsh/completions"
+fpath=("$HOME/.zsh/completions" $fpath)
+
+# Helm completions (if installed)
+if command -v helm >/dev/null; then
+    helm completion zsh > "$HOME/.zsh/completions/_helm" 2>/dev/null
+fi
+
+# Docker completions (handled separately)
+fpath=($HOME/.docker/completions $fpath)
+
 # === PROMPT E UI ===
-# Kubernetes prompt (kube-ps1)
-export PROMPT=$PROMPT"\$(kube_ps1) "
+# Kubernetes prompt (manual setup instead of kube-ps1 bundle)
+if command -v kubectl >/dev/null; then
+    source <(kubectl completion zsh) 2>/dev/null
+fi
 
 # === PATHS ADICIONAIS ===
 # Yarn global bin
@@ -113,7 +124,6 @@ export PATH=$PATH:$HOME/.local/bin
 # === ALIASES ===
 alias k=kubectl
 
-# === DOCKER CLI COMPLETIONS ===
-fpath=($HOME/.docker/completions $fpath)
+# === INITIALIZE COMPLETIONS ===
 autoload -Uz compinit
 compinit
