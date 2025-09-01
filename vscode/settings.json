@@ -19,6 +19,7 @@
   "go.useLanguageServer": true,
   "go.autocompleteUnimportedPackages": true,
   "go.formatTool": "goimports",
+  // Javascript
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
@@ -45,6 +46,16 @@
   "prettier.tabWidth": 2,
   "javascript.updateImportsOnFileMove.enabled": "never",
   "typescript.updateImportsOnFileMove.enabled": "always",
+  // terraform 0.12
+  "terraform.path": "terraform12",
+  "terraform.indexing": {
+    "enabled": false
+  },
+  "terraform.languageServer": {
+    "external": true,
+    "args": ["serve"]
+  },
+  // Thema
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
@@ -53,6 +64,12 @@
           "fontStyle": "italic"
         }
       },
+      // {
+      //   "scope": "variable.other.object.property",
+      //   "settings": {
+      //     "foreground": "#7db0fc"
+      //   }
+      // },
       {
         "scope": "strong",
         "settings": {
