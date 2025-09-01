@@ -1,10 +1,6 @@
 # Brewfile - Install development tools and applications
 # Run: brew bundle install
 
-# Taps (third-party repositories)
-tap "homebrew/cask-fonts"
-tap "homebrew/bundle"
-
 # CLI Tools - Essential
 brew "zsh"
 brew "starship"
@@ -45,7 +41,6 @@ brew "grep"
 brew "ripgrep"
 brew "fd"
 brew "bat"
-brew "exa"
 brew "lazygit"
 brew "gh"
 brew "gpg"
@@ -58,7 +53,7 @@ cask "iterm2"
 cask "postman"
 cask "spotify"
 
-# Fonts
+# Fonts (Nerd Fonts are now available directly)
 cask "font-fira-code-nerd-font"
 cask "font-caskaydia-cove-nerd-font"
 cask "font-hack-nerd-font"
