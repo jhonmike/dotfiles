@@ -1,14 +1,27 @@
-[user]
-	name = Jhon Mike
-	email = jhon.msdev@gmail.com
-[core]
-	editor = vim
-[merge]
-	tool = vimdiff
 [init]
-	defaultBranch = main
+  defaultBranch = main
+[user]
+  name = jhonmike
+  email = jhon.msdev@gmail.com
+  # signingkey = YOUR_GPG_KEY_HERE (configure after installation)
+[core]
+  editor = vim
+[merge]
+  tool = vimdiff
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+[url "git@github.com:"]
+  insteadOf = git://github.com/
+[commit]
+  # gpgsign = true (uncomment after setting up GPG)
+[pull]
+  rebase = false
+[fetch]
+  prune = true
+[color]
+  diff = auto
+  status = auto
+  branch = auto
