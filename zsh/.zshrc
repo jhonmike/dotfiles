@@ -35,16 +35,13 @@ antigen bundle aws
 antigen bundle terraform
 antigen bundle pip
 antigen bundle rust
-antigen bundle cargo
 antigen bundle node
-antigen bundle osx
 antigen bundle vault
 antigen bundle command-not-found
 
 # Additional bundles
 antigen bundle chrissicool/zsh-256color
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle softmoth/zsh-vim-mode
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle soimort/translate-shell
 
