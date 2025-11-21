@@ -8,7 +8,10 @@ Configurações pessoais para ambiente de desenvolvimento, incluindo Cursor, VSC
 dotfiles/
 ├── cursor/             # Configurações do Cursor
 │   ├── settings.json
-│   └── keybindings.json
+│   ├── keybindings.json
+│   ├── extensions.txt  # Lista de extensões instaladas
+│   ├── export-extensions.sh  # Script para exportar extensões
+│   └── install-extensions.sh # Script para instalar extensões
 ├── vscode/            # Configurações do VSCode
 │   └── settings.json
 ├── zsh/               # Configurações do Zsh
@@ -58,6 +61,7 @@ O `install.sh` irá:
 - Fazer backup das configurações existentes
 - Criar links simbólicos para as novas configurações
 - Instalar o Vim Plug (se necessário)
+- Instalar extensões do Cursor (se extensions.txt existir)
 
 ## Aplicações e Ferramentas Incluídas
 
@@ -186,6 +190,34 @@ As configurações de GPG estão comentadas por segurança. Para habilitar:
    [commit]
      gpgsign = true
    ```
+
+## Sincronização de Extensões do Cursor
+
+Para sincronizar extensões do Cursor entre máquinas:
+
+### Na máquina com extensões instaladas:
+
+```bash
+cd ~/Projects/dotfiles
+./cursor/export-extensions.sh
+```
+
+Isso criará o arquivo `cursor/extensions.txt` com todas as extensões instaladas.
+
+### Na nova máquina:
+
+```bash
+cd ~/Projects/dotfiles
+./install.sh  # Instala automaticamente as extensões se extensions.txt existir
+```
+
+Ou manualmente:
+
+```bash
+./cursor/install-extensions.sh
+```
+
+> 💡 **Dica**: Após instalar novas extensões, execute `export-extensions.sh` e faça commit do `extensions.txt` para manter sincronizado.
 
 ## Backups e Compatibilidade
 
