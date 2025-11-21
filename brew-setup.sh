@@ -38,6 +38,37 @@ fi
 echo "🧹 Cleaning up..."
 brew cleanup
 
+# Setup Node.js via nvm (if nvm is installed)
+echo ""
+echo "📦 Setting up Node.js via nvm..."
+# Detect Homebrew prefix
+if [[ $(uname -m) == "arm64" ]]; then
+    HOMEBREW_PREFIX="/opt/homebrew"
+else
+    HOMEBREW_PREFIX="/usr/local"
+fi
+
+# Load nvm and install Node.js if available
+if [[ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ]]; then
+    export NVM_DIR="$HOME/.nvm"
+    # Temporarily disable set -e for nvm operations
+    set +e
+    source "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"
+    
+    # Install latest LTS Node.js if not already installed
+    if ! nvm list 2>/dev/null | grep -q "v[0-9]"; then
+        echo "📥 Installing latest LTS Node.js..."
+        nvm install --lts
+        nvm use --default --lts
+        echo "✅ Node.js installed successfully"
+    else
+        echo "✅ Node.js already installed via nvm"
+    fi
+    set -e
+else
+    echo "⚠️  nvm not found. Node.js will need to be installed manually after restarting terminal."
+fi
+
 echo ""
 echo "✅ Homebrew setup completed!"
 echo ""

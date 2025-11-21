@@ -50,6 +50,7 @@ O `brew-setup.sh` irá:
 
 - Instalar Homebrew (se necessário)
 - Instalar todas as aplicações e ferramentas de desenvolvimento
+- Instalar Node.js LTS via nvm (automaticamente)
 - Configurar fontes Nerd Fonts
 
 O `install.sh` irá:

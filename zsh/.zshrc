@@ -1,5 +1,19 @@
 # === PATHS E VARIÁVEIS GLOBAIS ===
-export PATH="/opt/homebrew/bin:$PATH"
+# Detectar arquitetura e configurar Homebrew
+if [[ $(uname -m) == "arm64" ]]; then
+    # Apple Silicon (M1/M2/M3)
+    HOMEBREW_PREFIX="/opt/homebrew"
+    export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+else
+    # Intel
+    HOMEBREW_PREFIX="/usr/local"
+    export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+fi
+
+# Configurar Homebrew se disponível
+if [[ -f "$HOMEBREW_PREFIX/bin/brew" ]]; then
+    eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
+fi
 
 # === HISTÓRICO DO ZSH ===
 HISTFILE=~/.zsh_history
@@ -9,118 +23,103 @@ SAVEHIST=20000
 # === CONFIGURAÇÕES DE DESENVOLVIMENTO ===
 export GOPATH="${HOME}/.go"
 export PATH="$GOPATH/bin:${PATH}"
-eval "$(rbenv init -)"
+eval "$(rbenv init -)" 2>/dev/null || true
 
 # === NVM SETUP ===
 export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && source "/opt/homebrew/opt/nvm/nvm.sh"
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && source "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
-
-# === PLUGINS E TOOLS ===
-# Antigen e bundles
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    source /usr/share/zsh/share/antigen.zsh
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-    source /opt/homebrew/share/antigen/antigen.zsh
+if [[ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ]]; then
+    source "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"
+fi
+if [[ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ]]; then
+    source "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm"
 fi
 
-# Load the oh-my-zsh's library
-antigen use oh-my-zsh
+# === ANTIGEN E PLUGINS ===
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    source /usr/share/zsh/share/antigen.zsh 2>/dev/null || true
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    if [[ -f "$HOMEBREW_PREFIX/share/antigen/antigen.zsh" ]]; then
+        source "$HOMEBREW_PREFIX/share/antigen/antigen.zsh"
+    elif [[ -f "/usr/local/share/antigen/antigen.zsh" ]]; then
+        source "/usr/local/share/antigen/antigen.zsh"
+    fi
+fi
 
-# Oh-My-Zsh bundles
-antigen bundle git
-antigen bundle kubectl
-antigen bundle golang
-antigen bundle aws
-antigen bundle terraform
-antigen bundle pip
-antigen bundle rust
-antigen bundle node
-antigen bundle vault
-antigen bundle command-not-found
+# Carregar bundles do Antigen se disponível
+if command -v antigen >/dev/null; then
+    antigen use oh-my-zsh
+    
+    # Oh-My-Zsh bundles
+    antigen bundle git
+    antigen bundle kubectl
+    antigen bundle golang
+    antigen bundle aws
+    antigen bundle terraform
+    antigen bundle pip
+    antigen bundle rust
+    antigen bundle node
+    antigen bundle vault
+    antigen bundle command-not-found
+    
+    # Additional bundles
+    antigen bundle chrissicool/zsh-256color
+    antigen bundle zsh-users/zsh-syntax-highlighting
+    antigen bundle zsh-users/zsh-autosuggestions
+    antigen bundle soimort/translate-shell
+    
+    antigen apply
+fi
 
-# Additional bundles
-antigen bundle chrissicool/zsh-256color
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle soimort/translate-shell
-
-# Apply bundles
-antigen apply
-
-# Starship Prompt
-eval "$(starship init zsh)"
-
-# FZF (fuzzy finder)
+# === PROMPTS E FERRAMENTAS ===
+eval "$(starship init zsh)" 2>/dev/null || true
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # === PYTHON ===
 export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:${PATH}"
+eval "$(pyenv init -)" 2>/dev/null || true
 
 # === LOCALIZAÇÃO ===
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# === EDITORES E TOOLS ===
+# === EDITORES ===
 export EDITOR="vim"
 export VISUAL="vim"
 
-# Homebrew
-if command -v brew >/dev/null; then
-  HOMEBREW_PREFIX="$(brew --prefix)"
-  export PATH="${HOMEBREW_PREFIX}/sbin:${PATH}"
-elif [[ -f "/opt/homebrew/bin/brew" && $(/usr/bin/uname -sm) == "Darwin arm64" ]]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-  export PATH="${HOMEBREW_PREFIX}/sbin:${PATH}"
-fi
+# === FERRAMENTAS ADICIONAIS ===
+[ -f "$HOME/.sdkman/bin/sdkman-init.sh" ] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# SDKMAN
-if [[ -f "$HOME/.sdkman/bin/sdkman-init.sh" && $(/usr/bin/uname -sm) == "Darwin arm64" ]]; then
-  source "$HOME/.sdkman/bin/sdkman-init.sh"
-fi
-
-# jEnv
 if command -v jenv >/dev/null; then
-  export PATH="${HOME}/.jenv/bin:${PATH}"
-  eval "$(jenv init -)"
+    export PATH="${HOME}/.jenv/bin:${PATH}"
+    eval "$(jenv init -)"
 fi
 
-# Node.js
 if command -v node >/dev/null && [[ -n "$HOMEBREW_PREFIX" ]]; then
-  export NODE_PATH="${HOMEBREW_PREFIX}/lib/node_modules"
+    export NODE_PATH="${HOMEBREW_PREFIX}/lib/node_modules"
 fi
 
 # === COMPLETIONS ===
-# Setup completion directories
 mkdir -p "$HOME/.zsh/completions"
 fpath=("$HOME/.zsh/completions" $fpath)
 
-# Helm completions (if installed)
 if command -v helm >/dev/null; then
     helm completion zsh > "$HOME/.zsh/completions/_helm" 2>/dev/null
 fi
 
-# Docker completions (handled separately)
 fpath=($HOME/.docker/completions $fpath)
 
-# === PROMPT E UI ===
-# Kubernetes prompt (manual setup instead of kube-ps1 bundle)
 if command -v kubectl >/dev/null; then
     source <(kubectl completion zsh) 2>/dev/null
 fi
 
 # === PATHS ADICIONAIS ===
-# Yarn global bin
-export PATH="$(yarn global bin):$PATH"
-
-# Local bin
-export PATH=$PATH:$HOME/.local/bin
+command -v yarn >/dev/null && export PATH="$(yarn global bin):$PATH"
+export PATH="$PATH:$HOME/.local/bin"
 
 # === ALIASES ===
 alias k=kubectl
 
-# === INITIALIZE COMPLETIONS ===
+# === INICIALIZAR COMPLETIONS ===
 autoload -Uz compinit
 compinit
