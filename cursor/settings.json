@@ -5,7 +5,10 @@
   "editor.fontFamily": "FiraCode Nerd Font",
   "editor.fontLigatures": true,
   "editor.renderWhitespace": "all",
-  "editor.rulers": [100, 120],
+  "editor.rulers": [
+    100,
+    120
+  ],
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "editor.formatOnSave": true,
@@ -35,7 +38,13 @@
     "vue"
   ],
   "eslint.options": {
-    "extensions": [".js", ".jsx", ".ts", ".tsx", ".vue"]
+    "extensions": [
+      ".js",
+      ".jsx",
+      ".ts",
+      ".tsx",
+      ".vue"
+    ]
   },
   "prettier.singleQuote": true,
   "prettier.tabWidth": 2,
@@ -106,7 +115,9 @@
   "[dart]": {
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    "editor.rulers": [80],
+    "editor.rulers": [
+      80
+    ],
     "editor.selectionHighlight": false,
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggestSelection": "first",
@@ -119,7 +130,7 @@
   },
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "python.languageServer": "Pylance",
+  "python.languageServer": "None",
   "vscodeGoogleTranslate.preferredLanguage": "English",
   "workbench.iconTheme": "material-icon-theme",
   "editor.guides.indentation": true,
@@ -138,7 +149,9 @@
     "editor.formatOnType": true
   },
   "editor.inlineSuggest.enabled": true,
-  "cSpell.userWords": ["jhonmike"],
+  "cSpell.userWords": [
+    "jhonmike"
+  ],
   "calva.fmt.configPath": "CLOJURE-LSP",
   "window.zoomLevel": -1,
   "calva.prettyPrintingOptions": {
@@ -158,16 +171,22 @@
   "terminal.integrated.profiles.osx": {
     "bash": {
       "path": "bash",
-      "args": ["-l"],
+      "args": [
+        "-l"
+      ],
       "icon": "terminal-bash"
     },
     "zsh": {
       "path": "zsh",
-      "args": ["-l"]
+      "args": [
+        "-l"
+      ]
     },
     "fish": {
       "path": "fish",
-      "args": ["-l"]
+      "args": [
+        "-l"
+      ]
     },
     "tmux": {
       "path": "tmux",
@@ -189,6 +208,9 @@
     "*.yml.tmpl": "yaml",
     "*.cgo": "clojure"
   },
-  "cursor.cpp.disabledLanguages": ["plaintext", "scminput"],
+  "cursor.cpp.disabledLanguages": [
+    "plaintext",
+    "scminput"
+  ],
   "editor.accessibilitySupport": "off"
 }

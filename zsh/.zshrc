@@ -20,6 +20,18 @@ HISTFILE=~/.zsh_history
 HISTSIZE=20000
 SAVEHIST=20000
 
+# Compartilhar histórico entre todas as sessões do Zsh
+setopt SHARE_HISTORY          # Compartilha histórico entre todas as sessões
+setopt APPEND_HISTORY         # Adiciona ao histórico (não sobrescreve)
+setopt INC_APPEND_HISTORY     # Salva cada comando imediatamente
+setopt HIST_IGNORE_DUPS       # Não salva comandos duplicados consecutivos
+setopt HIST_IGNORE_ALL_DUPS   # Remove duplicados mais antigos quando adicionar novo
+setopt HIST_IGNORE_SPACE      # Não salva comandos que começam com espaço
+setopt HIST_FIND_NO_DUPS      # Não mostra duplicados ao navegar no histórico
+setopt HIST_REDUCE_BLANKS     # Remove espaços extras dos comandos
+setopt HIST_VERIFY            # Mostra comando antes de executar (ao usar !!)
+setopt HIST_EXPIRE_DUPS_FIRST # Remove duplicados primeiro quando HISTFILE estiver cheio
+
 # === CONFIGURAÇÕES DE DESENVOLVIMENTO ===
 export GOPATH="${HOME}/.go"
 export PATH="$GOPATH/bin:${PATH}"
@@ -109,6 +121,14 @@ fi
 
 fpath=($HOME/.docker/completions $fpath)
 
+# === GOOGLE CLOUD SDK ===
+if [ -f '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc' ]; then . '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="/opt/homebrew/share/google-cloud-sdk/bin:$PATH"
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
+# === PROMPT E UI ===
+# Kubernetes prompt (manual setup instead of kube-ps1 bundle)
 if command -v kubectl >/dev/null; then
     source <(kubectl completion zsh) 2>/dev/null
 fi
