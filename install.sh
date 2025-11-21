@@ -54,6 +54,15 @@ mkdir -p "$HOME/Library/Application Support/Code/User"
 backup_and_link "$DOTFILES_DIR/cursor/settings.json" "$HOME/Library/Application Support/Cursor/User/settings.json"
 backup_and_link "$DOTFILES_DIR/cursor/keybindings.json" "$HOME/Library/Application Support/Cursor/User/keybindings.json"
 
+# Install Cursor extensions if extensions.txt exists
+if [ -f "$DOTFILES_DIR/cursor/extensions.txt" ] && command -v cursor &> /dev/null; then
+    echo "📦 Installing Cursor extensions..."
+    # Temporarily disable set -e to allow extension installation to fail gracefully
+    set +e
+    "$DOTFILES_DIR/cursor/install-extensions.sh"
+    set -e
+fi
+
 # Link VSCode configurations
 backup_and_link "$DOTFILES_DIR/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
 
