@@ -1,0 +1,9 @@
+anthropic.claude-code
+anysphere.cursorpyright
+bierner.markdown-mermaid
+dracula-theme.theme-dracula
+github.vscode-github-actions
+golang.go
+hashicorp.terraform
+ms-vscode.makefile-tools
+unifiedjs.vscode-mdx
