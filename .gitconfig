@@ -14,7 +14,7 @@
   process = git-lfs filter-process
   required = true
 [url "git@github.com:"]
-  insteadOf = git://github.com/
+	insteadOf = https://github.com/
 [commit]
   # gpgsign = true (uncomment after setting up GPG)
 [pull]

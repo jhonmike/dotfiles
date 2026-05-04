@@ -21,12 +21,12 @@
   "go.formatTool": "goimports",
   // Javascript
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
+    "source.fixAll.eslint": "explicit",
   },
   "search.exclude": {
     "**/node_modules": true,
     "**/bower_components": true,
-    "**/dist": true
+    "**/dist": true,
   },
   "eslint.validate": [
     "html",
@@ -34,10 +34,10 @@
     "typescript",
     "javascriptreact",
     "typescriptreact",
-    "vue"
+    "vue",
   ],
   "eslint.options": {
-    "extensions": [".js", ".jsx", ".ts", ".tsx", ".vue"]
+    "extensions": [".js", ".jsx", ".ts", ".tsx", ".vue"],
   },
   "tslint.enable": true,
   "tslint.autoFixOnSave": true,
@@ -49,11 +49,11 @@
   // terraform 0.12
   "terraform.path": "terraform12",
   "terraform.indexing": {
-    "enabled": false
+    "enabled": false,
   },
   "terraform.languageServer": {
     "external": true,
-    "args": ["serve"]
+    "args": ["serve"],
   },
   // Thema
   "editor.tokenColorCustomizations": {
@@ -61,8 +61,8 @@
       {
         "scope": "variable.language",
         "settings": {
-          "fontStyle": "italic"
-        }
+          "fontStyle": "italic",
+        },
       },
       // {
       //   "scope": "variable.other.object.property",
@@ -73,56 +73,56 @@
       {
         "scope": "strong",
         "settings": {
-          "fontStyle": "bold"
-        }
+          "fontStyle": "bold",
+        },
       },
       {
         "scope": "keyword.control",
         "settings": {
-          "fontStyle": "italic"
-        }
+          "fontStyle": "italic",
+        },
       },
       {
         "scope": "keyword.operator.expression.delete",
         "settings": {
-          "fontStyle": "italic"
-        }
+          "fontStyle": "italic",
+        },
       },
       {
         "scope": "storage",
         "settings": {
-          "fontStyle": "italic"
-        }
+          "fontStyle": "italic",
+        },
       },
       {
         "scope": "entity.other.attribute-name",
         "settings": {
-          "fontStyle": "italic"
-        }
+          "fontStyle": "italic",
+        },
       },
       {
         "scope": [
           "entity.other.attribute-name.html",
           "entity.other.attribute-name.tag.jade",
-          "entity.other.attribute-name.tag.pug"
+          "entity.other.attribute-name.tag.pug",
         ],
         "settings": {
-          "fontStyle": "italic"
-        }
+          "fontStyle": "italic",
+        },
       },
       {
         "scope": "markup.bold",
         "settings": {
-          "fontStyle": "bold"
-        }
+          "fontStyle": "bold",
+        },
       },
       {
         "scope": "markup.italic",
         "settings": {
-          "fontStyle": "italic"
-        }
-      }
-    ]
+          "fontStyle": "italic",
+        },
+      },
+    ],
   },
   "[dart]": {
     "editor.formatOnSave": true,
@@ -132,11 +132,11 @@
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggestSelection": "first",
     "editor.tabCompletion": "onlySnippets",
-    "editor.wordBasedSuggestions": "off"
+    "editor.wordBasedSuggestions": "off",
   },
   "workbench.colorTheme": "Dracula Theme",
   "workbench.editorAssociations": {
-    "*.ipynb": "jupyter.notebook.ipynb"
+    "*.ipynb": "jupyter.notebook.ipynb",
   },
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
@@ -148,34 +148,34 @@
     "ruby": true,
     "fasterer": true,
     "debride": true,
-    "ruby-lint": true
+    "ruby-lint": true,
   },
   "ruby.locate": {
-    "include": "**/*.rb"
+    "include": "**/*.rb",
   },
   "vscodeGoogleTranslate.preferredLanguage": "English",
   "workbench.iconTheme": "material-icon-theme",
   "editor.guides.indentation": true,
   "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "redhat.telemetry.enabled": true,
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "go.toolsManagement.autoUpdate": true,
   "[python]": {
-    "editor.formatOnType": true
+    "editor.formatOnType": true,
   },
   "editor.inlineSuggest.enabled": true,
   "github.copilot.enable": {
     "*": true,
     "plaintext": false,
     "markdown": true,
-    "scminput": false
+    "scminput": false,
   },
   "cSpell.userWords": ["jhonmike"],
   "calva.fmt.configPath": "CLOJURE-LSP",
@@ -184,12 +184,12 @@
     "printEngine": "pprint",
     "enabled": true,
     "width": 120,
-    "maxLength": 50
+    "maxLength": 50,
   },
   "calva.paredit.defaultKeyMap": "strict",
   "github.copilot.editor.enableAutoCompletions": true,
   "gitlens.advanced.messages": {
-    "suppressIntegrationRequestTimedOutWarning": true
+    "suppressIntegrationRequestTimedOutWarning": true,
   },
   "terminal.integrated.scrollback": 100000,
   "editor.multiCursorLimit": 100000,
@@ -200,36 +200,47 @@
     "bash": {
       "path": "bash",
       "args": ["-l"],
-      "icon": "terminal-bash"
+      "icon": "terminal-bash",
     },
     "zsh": {
       "path": "zsh",
-      "args": ["-l"]
+      "args": ["-l"],
     },
     "fish": {
       "path": "fish",
-      "args": ["-l"]
+      "args": ["-l"],
     },
     "tmux": {
       "path": "tmux",
-      "icon": "terminal-tmux"
+      "icon": "terminal-tmux",
     },
     "pwsh": {
       "path": "pwsh",
-      "icon": "terminal-powershell"
-    }
+      "icon": "terminal-powershell",
+    },
   },
   "eslint.format.enable": true,
   "[javascript]": {
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "git.autofetch": true,
   "files.associations": {
     "*.yaml.tmpl": "yaml",
     "*.yml.tmpl": "yaml",
-    "*.cgo": "clojure"
+    "*.cgo": "clojure",
   },
   "docker.extension.enableComposeLanguageServer": false,
-  "github.copilot.nextEditSuggestions.enabled": true
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "security.promptForLocalFileProtocolHandling": false,
+  "claudeCode.preferredLocation": "panel",
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+  "vs-kubernetes": {
+    "vscode-kubernetes.helm-path-mac": "/Users/jhon.soares/.vs-kubernetes/tools/helm/darwin-arm64/helm",
+    "vscode-kubernetes.kubectl-path-mac": "/Users/jhon.soares/.vs-kubernetes/tools/kubectl/kubectl",
+    "vscode-kubernetes.minikube-path-mac": "/Users/jhon.soares/.vs-kubernetes/tools/minikube/darwin-arm64/minikube",
+  },
+  "claudeCode.selectedModel": "opus",
+  "chat.viewSessions.orientation": "stacked",
 }

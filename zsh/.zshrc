@@ -30,7 +30,7 @@ export GOPATH="${HOME}/.go"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="/Users/jhonmike/.antigravity/antigravity/bin:$PATH"
+export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
 
 # === NVM (LAZY LOAD) ===
 export NVM_DIR="$HOME/.nvm"
@@ -98,6 +98,14 @@ fi
 # === STARSHIP E FZF ===
 eval "$(starship init zsh)" 2>/dev/null || true
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# === PODMAN ===
+# Auto-start podman machine if not running (for MCP servers)
+if command -v podman &>/dev/null; then
+    if ! podman machine inspect podman-machine-default --format '{{.State}}' 2>/dev/null | grep -q "running"; then
+        podman machine start &>/dev/null &
+    fi
+fi
 
 # === COMPLETIONS ===
 mkdir -p "$HOME/.zsh/completions"
