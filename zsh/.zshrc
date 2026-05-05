@@ -34,18 +34,18 @@ export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
 
 # === NVM (LAZY LOAD) ===
 export NVM_DIR="$HOME/.nvm"
-nvm() {
-    unset -f nvm node npm npx
+_nvm_init() {
+    unset -f nvm node npm npx _nvm_init
     if [[ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ]]; then
         source "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"
     elif [[ -s "$NVM_DIR/nvm.sh" ]]; then
         source "$NVM_DIR/nvm.sh"
     fi
-    nvm "$@"
 }
-node() { nvm; node "$@"; }
-npm()  { nvm; npm  "$@"; }
-npx()  { nvm; npx  "$@"; }
+nvm()  { _nvm_init; nvm  "$@"; }
+node() { _nvm_init; node "$@"; }
+npm()  { _nvm_init; npm  "$@"; }
+npx()  { _nvm_init; npx  "$@"; }
 
 # === RBENV ===
 if [[ -d "$HOME/.rbenv" ]]; then
@@ -56,15 +56,15 @@ fi
 export PYENV_ROOT="$HOME/.pyenv"
 if [[ -d "$PYENV_ROOT" ]]; then
     export PATH="$PYENV_ROOT/bin:$PATH"
-    pyenv() {
-        unset -f pyenv python python3 pip pip3
+    _pyenv_init() {
+        unset -f pyenv python python3 pip pip3 _pyenv_init
         eval "$(command pyenv init -)"
-        pyenv "$@"
     }
-    python()  { pyenv; python  "$@"; }
-    python3() { pyenv; python3 "$@"; }
-    pip()     { pyenv; pip     "$@"; }
-    pip3()    { pyenv; pip3    "$@"; }
+    pyenv()   { _pyenv_init; pyenv   "$@"; }
+    python()  { _pyenv_init; python  "$@"; }
+    python3() { _pyenv_init; python3 "$@"; }
+    pip()     { _pyenv_init; pip     "$@"; }
+    pip3()    { _pyenv_init; pip3    "$@"; }
 fi
 
 # === JENV ===
