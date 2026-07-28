@@ -66,6 +66,10 @@ fi
 # Link VSCode configurations
 backup_and_link "$DOTFILES_DIR/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
 
+# Link Claude Code status line script (settings.json stays personal — see claude/README.md)
+mkdir -p "$HOME/.claude"
+backup_and_link "$DOTFILES_DIR/claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
+
 echo ""
 echo "✅ Dotfiles installation completed!"
 echo ""

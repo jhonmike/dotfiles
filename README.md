@@ -18,6 +18,9 @@ dotfiles/
 │   └── .zshrc
 ├── vim/               # Configurações do Vim
 │   └── .vimrc
+├── claude/            # Configurações do Claude Code (não-sensíveis)
+│   ├── statusline-command.sh   # Script da status line
+│   └── settings.example.json   # Bloco statusLine para o settings.json
 ├── bkp_linux/         # Backup de configurações Linux (para referência futura)
 │   ├── i3/           # Window manager i3
 │   └── deepin/       # Deepin terminal
